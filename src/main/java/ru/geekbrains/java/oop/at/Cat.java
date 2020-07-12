@@ -19,12 +19,15 @@ public class Cat  implements Action{
     public int getHeight() {
         return height;
     }
+    public String getName() {
+        return name;
+    }
 
     public void run() {
-        System.out.println(name + "");
+        System.out.println(name + " пробежал: " + getLength() + " м");
     }
 
     public void jump() {
-        System.out.println("");
+        System.out.println(name + " прыгнул на: " + getHeight() + " см");;
     }
 }

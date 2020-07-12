@@ -1,6 +1,19 @@
 package ru.geekbrains.java.oop.at;
 
-public class Wall {
+public class Wall extends Let{
 
-    private int height;
+    public Wall(int value) {
+        super(value);
+    }
+
+    public void result(int attempt) {
+        if (attempt >= getValue()){
+            System.out.println("успешно перепрыгнул " + getValue() + " см.");
+            setNext(true);
+            setLetType(true);
+        } else {
+            System.out.println("не смог перепрыгнуть " + getValue() + " см.");
+            setNext(false);
+        }
+    }
 }
