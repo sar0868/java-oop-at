@@ -10,7 +10,6 @@ public class Wall extends Let{
         if (attempt >= getValue()){
             System.out.println("успешно перепрыгнул " + getValue() + " см.");
             setNext(true);
-            setLetType(true);
         } else {
             System.out.println("не смог перепрыгнуть " + getValue() + " см.");
             setNext(false);

@@ -4,16 +4,6 @@ abstract public class Let {
 
     protected int value;
     protected boolean next;
-    protected boolean letType;
-
-    public boolean isLetType() {
-        return letType;
-    }
-
-    public void setLetType(boolean letType) {
-        this.letType = letType;
-    }
-
 
     public void setNext(boolean next) {
         this.next = next;
@@ -26,7 +16,6 @@ abstract public class Let {
     public Let(int value) {
         this.value = value;
         this.next = true;
-        this.letType = true;
 
     }
 
@@ -35,5 +24,4 @@ abstract public class Let {
     }
 
     public abstract void result(int attempt);
-
 }

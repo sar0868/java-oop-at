@@ -10,7 +10,6 @@ public class Treadmill extends Let {
         if (attempt >= getValue()){
             System.out.println("успешно пробежал " + getValue() + " м.");
             setNext(true);
-            setLetType(false);
         } else {
             System.out.println("не смог пробежать " + getValue() + " м.");
             setNext(false);
