@@ -1,5 +1,13 @@
 package ru.geekbrains.java.oop.at;
 
+import ru.geekbrains.java.oop.at.action.Action;
+import ru.geekbrains.java.oop.at.action.Cat;
+import ru.geekbrains.java.oop.at.action.Man;
+import ru.geekbrains.java.oop.at.action.Robot;
+import ru.geekbrains.java.oop.at.let.Let;
+import ru.geekbrains.java.oop.at.let.Treadmill;
+import ru.geekbrains.java.oop.at.let.Wall;
+
 public class Start {
     private static Object Treadmill;
 
@@ -22,6 +30,7 @@ public class Start {
             for (int i = 0; i < actions.length; i++) {
                 lets[j].result(actions[i]);
             }
+            System.out.println("-----------------------");
         }
     }
 }

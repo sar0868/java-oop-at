@@ -1,4 +1,6 @@
-package ru.geekbrains.java.oop.at;
+package ru.geekbrains.java.oop.at.let;
+
+import ru.geekbrains.java.oop.at.action.Action;
 
 abstract public class Let {
 

@@ -1,13 +1,13 @@
-package ru.geekbrains.java.oop.at;
+package ru.geekbrains.java.oop.at.action;
 
-public class Man implements Action{
+public class Robot implements Action {
 
     private int length;
     private int height;
     private String name;
     private boolean next;
 
-    public Man(String name, int length, int height) {
+    public Robot (String name, int length, int height) {
         this.name = name;
         this.length = length;
         this.height = height;
@@ -33,6 +33,7 @@ public class Man implements Action{
     public void run() {
         System.out.println(name + " пробежал: " + getLength() + " м");
     }
+
     public void jump() {
         System.out.println(name + " прыгнул на: " + getHeight() + " см");;
     }
