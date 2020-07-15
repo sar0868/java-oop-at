@@ -5,11 +5,13 @@ public class Robot implements Action {
     private int length;
     private int height;
     private String name;
+    private boolean next;
 
     public Robot (String name, int length, int height) {
         this.name = name;
         this.length = length;
         this.height = height;
+        this.next = true;
     }
 
     public int getLength() {
@@ -20,6 +22,12 @@ public class Robot implements Action {
     }
     public String getName() {
         return name;
+    }
+    public void setNext(boolean next) {
+        this.next = next;
+    }
+    public boolean isNext() {
+        return next;
     }
 
     public void run() {

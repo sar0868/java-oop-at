@@ -6,13 +6,15 @@ public class Wall extends Let{
         super(value);
     }
 
-    public void result(int attempt) {
-        if (attempt >= getValue()){
-            System.out.println("успешно перепрыгнул " + getValue() + " см.");
-            setNext(true);
-        } else {
-            System.out.println("не смог перепрыгнуть " + getValue() + " см.");
-            setNext(false);
+    public void result(Action action) {
+        if (action.isNext()) {
+            if (getValue() >= action.getHeight()){
+                System.out.println(action.getName() + " успешно перепрыгнул " + getValue() + " cм.");
+            }
+            else {
+                System.out.println(action.getName() + " успешно перепрыгнул " + getValue() + " cм.");
+                action.setNext(false);
+            }
         }
     }
 }

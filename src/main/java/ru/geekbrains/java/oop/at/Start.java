@@ -5,9 +5,9 @@ public class Start {
 
     public static void main(String[] args) {
         int typeLets = 0;
-        Cat vasya = new Cat("Vasya", 3, 20);
-        Man ivan = new Man("Иван", 10, 100);
-        Robot robot = new Robot("Robot", 50, 200);
+        Action vasya = new Cat("Vasya", 3, 20);
+        Action ivan = new Man("Иван", 10, 100);
+        Action robot = new Robot("Robot", 50, 200);
         Let treadmill1 = new Treadmill(2);
         Let treadmill2 = new Treadmill(10);
         Let treadmill3 = new Treadmill(22);
@@ -16,41 +16,11 @@ public class Start {
         Let wall3 = new Wall(200);
 
         Let[] lets = {treadmill1, wall1, treadmill2, wall2, treadmill3, wall3};
+        Action[] actions = {vasya, ivan, robot};
 
-        for (int i = 0; i < lets.length ; i++) {
-            System.out.print(vasya.getName() + " ");
-            if (lets[i].getClass() == treadmill1.getClass()){
-                typeLets = vasya.getLength();
-            } else {
-                typeLets = vasya.getHeight();
-            }
-            lets[i].result(typeLets);
-            if (!lets[i].isNext()){
-                break;
-            }
-        }
-        for (int i = 0; i < lets.length ; i++) {
-            System.out.print(ivan.getName() + " ");
-            if (lets[i].getClass() == treadmill1.getClass()){
-                typeLets = ivan.getLength();
-            } else {
-                typeLets = ivan.getHeight();
-            }
-            lets[i].result(typeLets);
-            if (!lets[i].isNext()){
-                break;
-            }
-        }
-        for (int i = 0; i < lets.length; i++) {
-            System.out.print(robot.getName() + " ");
-            if (lets[i].getClass() == treadmill1.getClass()){
-                typeLets = robot.getLength();
-            } else {
-                typeLets = robot.getHeight();
-            }
-            lets[i].result(typeLets);
-            if (!lets[i].isNext()){
-                break;
+        for (int j = 0; j < lets.length; j++) {
+            for (int i = 0; i < actions.length; i++) {
+                lets[j].result(actions[i]);
             }
         }
     }
