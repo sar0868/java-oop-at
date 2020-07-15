@@ -18,7 +18,7 @@ public class Treadmill extends Let {
 
     public void result(Action action) {
         if (action.isNext()) {
-            if (getValue() >= action.getLength()){
+            if (getValue() <= action.getLength()){
                 System.out.println(action.getName() + " успешно пробежал " + getValue() + " м.");
             }
             else {

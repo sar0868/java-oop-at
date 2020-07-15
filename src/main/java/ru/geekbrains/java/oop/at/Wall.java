@@ -8,7 +8,7 @@ public class Wall extends Let{
 
     public void result(Action action) {
         if (action.isNext()) {
-            if (getValue() >= action.getHeight()){
+            if (getValue() <= action.getHeight()){
                 System.out.println(action.getName() + " успешно перепрыгнул " + getValue() + " cм.");
             }
             else {
