@@ -5,49 +5,37 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import ru.geekbrains.java.oop.at.base.BaseTest;
 
 import java.util.Arrays;
 
 import static java.lang.Thread.sleep;
 
-public class SearchTest {
+//Перейти на сайт https://geekbrains.ru/courses
+//Нажать на кнопку Поиск
+//В поле Поиск ввести текст: java
+//Проверить что на странице:
+//Профессий не менее чем 2
+//Курсов более 15
+//Вебинаров больше чем 180, но меньше 300
+//В вебинарах отображается первым “Java Junior. Что нужно знать для успешного собеседования?”
+//Блогов более 300
+//Форумов не 350
+//Тестов не 0
+//В Проектах и компаниях отображается GeekBrains
 
-    public ChromeDriver chromeDriver;
-
-
-    @BeforeEach
-    public void beforeEach(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        options.addArguments("--disable-popup-blocking");
-        options.setExperimentalOption("excludeSwitches", Arrays.asList("disable-popup-blocking"));
-        chromeDriver = new ChromeDriver(options);
-    }
+public class SearchTest extends BaseTest {
 
     @Test
-    public void navigationTest() throws InterruptedException {
+    public void searchTest() {
+        chromeDriver.findElementByCssSelector
+                ("[class=\"show-search-form\"] [class=\"svg-icon icon-search \"]").click();
+        chromeDriver.findElementByCssSelector("[class=\"search-panel__search-field\"]").sendKeys("java");
 
-        chromeDriver.get("https://geekbrains.ru/events");
-        sleep(1000);
-        chromeDriver.findElement(By.cssSelector("[id=\"nav\"] [href=\"/topics\"]")).click();
-        Assertions.assertEquals(
-                "Форум",
-                chromeDriver.findElement(By.cssSelector("[id=\"top-menu\"] h2")).getText()
-
-//        chromeDriver.findElementByCssSelector("[id=\"nav\"] [href=\"/courses\"]").click();
-//        sleep(1000);
-//        Assertions.assertEquals(
-//                "Курсы",
-//                chromeDriver.findElementByCssSelector("[id=\"top-menu\"] h2").getText()
-        );
-    }
-
-    @AfterEach
-    public void afterEach(){
-        chromeDriver.quit();
+        WebElement professions = chromeDriver.
     }
 
 
