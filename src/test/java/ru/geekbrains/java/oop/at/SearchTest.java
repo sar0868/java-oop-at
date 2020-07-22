@@ -35,7 +35,34 @@ public class SearchTest extends BaseTest {
                 ("[class=\"show-search-form\"] [class=\"svg-icon icon-search \"]").click();
         chromeDriver.findElementByCssSelector("[class=\"search-panel__search-field\"]").sendKeys("java");
 
-        WebElement professions = chromeDriver.
+//        WebElement professions = chromeDriver.findElementByXPath("//div/ul/li[2]/a/span");
+        WebElement professions = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='professions']/span");
+        WebElement courses = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='courses']/span");
+        WebElement webinars = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='webinars']/span");
+        WebElement blogs = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='blogs']/span");
+        WebElement forums = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='forums']/span");
+        WebElement tests = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='tests']/span");
+
+
+        Assertions.assertTrue(Integer.parseInt(professions.getText()) >= 2, "профессий менее 2");
+        Assertions.assertTrue(Integer.parseInt(courses.getText()) > 15, "Курсов менее 15");
+        Assertions.assertTrue((Integer.parseInt(webinars.getText()) > 180)
+                & (Integer.parseInt(webinars.getText()) < 300), "Вебинаров меньше чем 180, но больше 300");
+        Assertions.assertTrue(Integer.parseInt(blogs.getText()) > 300, "Блогов менее 300");
+        Assertions.assertTrue(Integer.parseInt(forums.getText()) != 350, "Форумов 350");
+        Assertions.assertTrue(Integer.parseInt(tests.getText()) != 0, "Тестов 0");
+
+
+
+
+
+
     }
 
 
