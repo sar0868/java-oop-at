@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import ru.geekbrains.java.oop.at.base.BaseTest;
 
 import java.util.Arrays;
@@ -35,28 +36,54 @@ public class SearchTest extends BaseTest {
                 ("[class=\"show-search-form\"] [class=\"svg-icon icon-search \"]").click();
         chromeDriver.findElementByCssSelector("[class=\"search-panel__search-field\"]").sendKeys("java");
 
-//        WebElement professions = chromeDriver.findElementByXPath("//div/ul/li[2]/a/span");
         WebElement professions = chromeDriver.findElementByXPath
-                (" //a[@class='search-page-tabs__item' and @data-tab='professions']/span");
+                ("//a[@class='search-page-tabs__item' and @data-tab='professions']");
         WebElement courses = chromeDriver.findElementByXPath
-                (" //a[@class='search-page-tabs__item' and @data-tab='courses']/span");
+                (" //a[@class='search-page-tabs__item' and @data-tab=\"courses\"]");
         WebElement webinars = chromeDriver.findElementByXPath
-                (" //a[@class='search-page-tabs__item' and @data-tab='webinars']/span");
+                (" //a[@class='search-page-tabs__item' and @data-tab='webinars']");
         WebElement blogs = chromeDriver.findElementByXPath
-                (" //a[@class='search-page-tabs__item' and @data-tab='blogs']/span");
+                (" //a[@class='search-page-tabs__item' and @data-tab='blogs']");
         WebElement forums = chromeDriver.findElementByXPath
-                (" //a[@class='search-page-tabs__item' and @data-tab='forums']/span");
+                (" //a[@class='search-page-tabs__item' and @data-tab='forums']");
         WebElement tests = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='tests']");
+
+        WebElement professionsCount = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='professions']/span");
+        WebElement coursesCount = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab=\"courses\"]/span");
+        WebElement webinarsCount = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='webinars']/span");
+        WebElement blogsCount = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='blogs']/span");
+        WebElement forumsCount = chromeDriver.findElementByXPath
+                (" //a[@class='search-page-tabs__item' and @data-tab='forums']/span");
+        WebElement testsCount = chromeDriver.findElementByXPath
                 (" //a[@class='search-page-tabs__item' and @data-tab='tests']/span");
 
 
-        Assertions.assertTrue(Integer.parseInt(professions.getText()) >= 2, "профессий менее 2");
-        Assertions.assertTrue(Integer.parseInt(courses.getText()) > 15, "Курсов менее 15");
-        Assertions.assertTrue((Integer.parseInt(webinars.getText()) > 180)
-                & (Integer.parseInt(webinars.getText()) < 300), "Вебинаров меньше чем 180, но больше 300");
-        Assertions.assertTrue(Integer.parseInt(blogs.getText()) > 300, "Блогов менее 300");
-        Assertions.assertTrue(Integer.parseInt(forums.getText()) != 350, "Форумов 350");
-        Assertions.assertTrue(Integer.parseInt(tests.getText()) != 0, "Тестов 0");
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(professions,"Профессии"));
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(courses, "Курсы"));
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(webinars, "Вебинары"));
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(blogs, "Блоги"));
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(forums, "Форумы"));
+        wait15seconds.until(ExpectedConditions.textToBePresentInElement(tests, "Тесты"));
+
+
+
+//        WebElement professions = chromeDriver.findElementByXPath("//div/ul/li[2]/a/span");
+
+
+
+
+        Assertions.assertTrue(Integer.parseInt(professionsCount.getText()) >= 2, "профессий менее 2");
+        Assertions.assertTrue(Integer.parseInt(coursesCount.getText()) > 15, "Курсов менее 15");
+        Assertions.assertTrue((Integer.parseInt(webinarsCount.getText()) > 180)
+                & (Integer.parseInt(webinarsCount.getText()) < 300), "Вебинаров меньше чем 180, но больше 300");
+        Assertions.assertTrue(Integer.parseInt(blogsCount.getText()) > 300, "Блогов менее 300");
+        Assertions.assertTrue(Integer.parseInt(forumsCount.getText()) != 350, "Форумов 350");
+        Assertions.assertTrue(Integer.parseInt(testsCount.getText()) != 0, "Тестов 0");
 
 
 
